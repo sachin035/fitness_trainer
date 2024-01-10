@@ -4,12 +4,12 @@ import { createUserSchema, loginSchema } from "../schema/user";
 import { validateReqBody } from "../middleware/validator";
 import { login, signup } from "../controller.ts/auth";
 
-const router = Router();
+const authRouter = Router();
 
-router.post("/signup", validateReqBody(createUserSchema), signup);
+authRouter.post("/signup", validateReqBody(createUserSchema), signup);
 
-router.post("/login", validateReqBody(loginSchema), login);
+authRouter.post("/login", validateReqBody(loginSchema), login);
 
-router.get("/refresh");
+authRouter.get("/refresh");
 
-export default router;
+export default authRouter;

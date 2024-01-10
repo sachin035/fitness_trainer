@@ -10,11 +10,11 @@ const createUserSchema = Joi.object({
   }),
 
   password: Joi.string().required().max(255).messages({
-    "required.any": "username is required",
+    "required.any": "password is required",
   }),
 });
 const loginSchema = Joi.object({
-  email: Joi.string().required().min(4).max(255),
+  email: Joi.string().required().min(6).max(255),
   password: Joi.string().required().min(6).max(255),
 });
 
