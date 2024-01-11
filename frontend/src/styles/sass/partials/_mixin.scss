@@ -1,0 +1,11 @@
+@mixin flex($position, $layout) {
+  display: flex;
+  // flex-wrap: wrap;
+  align-items: center;
+  flex-direction: $position;
+  justify-content: $layout;
+}
+@mixin font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}

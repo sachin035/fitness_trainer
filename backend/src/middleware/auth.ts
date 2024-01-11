@@ -11,9 +11,11 @@ export const auth = async (req: any, res: Response, next: NextFunction) => {
       throw new UnauthenticatedError("No access Token");
     }
 
-    const user = jwt.verify(token, config.jwt.accessTokenSecret!);
+    const user = jwt.verify(token, config.jwt.accessTokenSecret!) as {
+      id: number;
+    };
 
-    req.user = user;
+    req.user_id = user.id as number;
 
     next();
   } catch (error) {

@@ -11,7 +11,7 @@ const TABLE_NAME = "profiles";
  */
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable(TABLE_NAME, (table) => {
-    table.bigIncrements();
+    table.bigIncrements("profile_id").primary();
     table.string("fullname", 255).notNullable();
     table.string("description", 525).notNullable();
     table.string("available_time", 225).notNullable();
@@ -21,7 +21,14 @@ export async function up(knex: Knex): Promise<void> {
     table.string("experience", 225).notNullable();
     table.string("contact_number", 225).notNullable();
 
-    table.timestamp("created_at").notNullable().defaultTo(knex.raw("now()"));
+    table
+      .bigInteger("user_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("users");
+
+    // table.timestamp("created_at").notNullable().defaultTo(knex.raw("now()"));
 
     // table
     //   .bigInteger("created_by")
@@ -38,7 +45,7 @@ export async function up(knex: Knex): Promise<void> {
     //   .references("id")
     //   .inTable(TABLE_NAME)
     //   .onDelete("CASCADE");
-    // //   //
+    //   //
   });
 }
 
