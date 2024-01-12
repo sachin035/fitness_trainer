@@ -7,6 +7,7 @@ export async function createProfile(profile: IProfile) {
 
 export async function getAllProfile() {
   const profile = await ProfileModel.getAllProfile();
+  console.log(profile);
   return profile;
 }
 

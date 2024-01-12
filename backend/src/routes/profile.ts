@@ -12,7 +12,7 @@ import {
 } from "../controller.ts/profile";
 const profileRouter = Router();
 
-profileRouter.get("/all", getAllProfile);
+profileRouter.get("/all", auth, getAllProfile);
 profileRouter.get("/", auth, getProfile);
 profileRouter.post(
   "/",

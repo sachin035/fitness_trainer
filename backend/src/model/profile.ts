@@ -3,11 +3,12 @@ import BaseModel from "./baseModel";
 import { IProfile } from "../interface/profile";
 
 export default class ProfileModel extends BaseModel {
-  static async createProfile(profile: IProfile) {
-    return this.queryBuilder().insert(profile).table("profiles");
+  static async createProfile(profileData: IProfile) {
+    return this.queryBuilder().insert(profileData).table("profiles");
   }
+
   static async getAllProfile() {
-    return this.queryBuilder()
+    const result = await this.queryBuilder()
       .select({
         profile_id: "profiles.profile_id",
         fullname: "profiles.fullname",
@@ -18,8 +19,10 @@ export default class ProfileModel extends BaseModel {
         specialization: "profiles.specialization",
         contact_number: "profiles.contact_number",
         experience: "profiles.experience",
+        user_id: "profiles.user_id",
       })
       .from("profiles");
+    return result;
     // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
   }
 

@@ -67,7 +67,7 @@ export async function login(body: ILogin) {
     { expiresIn: REFRESH_TOKEN_EXPIRY }
   );
 
-  return { accessToken, refreshToken };
+  return { accessToken, refreshToken, message: "Login Successfull" };
 }
 export async function regenerateToken(token: string) {
   const payload: any = jwt.verify(token, config.jwt.refreshTokenSecret!);

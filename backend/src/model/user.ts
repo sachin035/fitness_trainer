@@ -34,8 +34,7 @@ export default class UserModel extends BaseModel {
       .from("users")
       .where({ username })
       .first();
-
-    return user?.[0];
+    return user;
   }
 
   static async getUserByEmail(email: string) {
