@@ -17,3 +17,15 @@ export const createReview = async (reviewData: IReview) => {
     };
   }
 };
+
+export const getAllReview = async () => {
+  return ReviewModel.getAllReview();
+};
+export const getByIdReview = async (profile_id: number) => {
+  console.log(profile_id);
+  const getReview = await ReviewModel.getByIdReview(profile_id);
+  return {
+    profile: getReview,
+    message: "review got successfully",
+  };
+};

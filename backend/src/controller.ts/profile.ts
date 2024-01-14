@@ -12,6 +12,7 @@ export async function createProfile(
   next: NextFunction
 ) {
   const extendedRequest = req as ExtendedRequest;
+  console.log("saclajs", extendedRequest.user_id);
   const profileData: IProfile = {
     ...req.body,
     user_id: extendedRequest.user_id,

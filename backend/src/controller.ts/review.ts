@@ -29,3 +29,27 @@ export async function createReview(
     next(error);
   }
 }
+
+export async function getAllReview(req: Request, res: Response) {
+  try {
+    const profile = await review.getAllReview();
+    res.json(profile);
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+}
+
+export async function getByIdReview(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  const extendedRequest = req as ExtendedRequest;
+
+  try {
+    const profile = await review.getByIdReview(extendedRequest.profile);
+    res.json(profile);
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+}

@@ -20,4 +20,32 @@ export default class ReviewModel extends BaseModel {
     console.log("model", user);
     return user;
   }
+
+  static async getAllReview() {
+    const result = await this.queryBuilder()
+      .select({
+        review_id: "reviews.review_id",
+        rating: "reviews.rating",
+        comment: "reviews.comment",
+        profile_id: "reviews.profile_id",
+        user_id: "reviews.user_id",
+      })
+      .from("reviews");
+    return result;
+  }
+
+  static async getByIdReview(profile_id) {
+    const result = await this.queryBuilder()
+      .select({
+        review_id: "reviews.review_id",
+        rating: "reviews.rating",
+        comment: "reviews.comment",
+        profile_id: "reviews.profile_id",
+        user_id: "reviews.user_id",
+      })
+      .from("reviews")
+      .where("reviews.profile_id", profile_id)
+      .first();
+    return result;
+  }
 }
