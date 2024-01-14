@@ -26,6 +26,19 @@ export default class ProfileModel extends BaseModel {
     // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
   }
 
+  static async getFilteredProfile(category: string, location: string) {
+    const result = await this.queryBuilder()
+      .select({
+        specialization: "profiles.specialization",
+        address: "profiles.address",
+      })
+      .from("profiles")
+      .where("profiles.specialization", category)
+      .where("profiles.address", location);
+    return result;
+    // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
+  }
+
   static async getProfile(user_id: number) {
     return (
       this.queryBuilder()

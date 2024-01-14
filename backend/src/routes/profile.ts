@@ -9,11 +9,13 @@ import {
   getProfile,
   updateProfile,
   deleteProfile,
+  getFilteredProfile,
 } from "../controller.ts/profile";
 const profileRouter = Router();
 
 profileRouter.get("/all", auth, getAllProfile);
 profileRouter.get("/", auth, getProfile);
+profileRouter.get("/all/search", auth, getFilteredProfile);
 profileRouter.post(
   "/",
   auth,

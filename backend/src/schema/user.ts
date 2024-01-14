@@ -9,7 +9,7 @@ const createUserSchema = Joi.object({
     "required.any": "email is required",
   }),
 
-  password: Joi.string().required().max(255).messages({
+  password: Joi.string().required().min(6).messages({
     "required.any": "password is required",
   }),
 });

@@ -1,0 +1,62 @@
+.profile {
+  &__form {
+    @include flex(column, center);
+    gap: 15px;
+    label {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: -10px;
+    }
+    input {
+      padding: 18px;
+      width: 30%;
+      border: 4px solid black;
+      border-radius: 10px;
+    }
+    label[for="description"] {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* Style for the description textarea */
+    textarea#description-profileform {
+      padding: 12px;
+      height: 120px; /* Adjust the height as needed */
+      width: 30%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+
+      resize: vertical; /* Allow vertical resizing of the textarea */
+    }
+
+    /* Optional: Style for the placeholder text in the textarea */
+    textarea#description-profileform::placeholder {
+      color: #999;
+    }
+    select#specialization {
+      padding: 10px;
+      width: 30%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      font-size: 24px;
+      padding: 20px 25px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: grey;
+      color: black;
+    }
+  }
+}

@@ -10,6 +10,6 @@ const reviewRouter = Router();
 
 reviewRouter.post("/", auth, createReview);
 reviewRouter.get("/", auth, getAllReview);
-// reviewRouter.get("/", auth, getByIdReview);
+reviewRouter.get("/", auth, getByIdReview);
 
 export default reviewRouter;

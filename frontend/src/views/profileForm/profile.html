@@ -9,10 +9,8 @@
     <!-- <link rel="stylesheet" href="./src/style/style.css" /> -->
   </head>
   <body>
-    <div class="form-control">
-     
-   
-        <form class="profile-form form" id="profile-form">
+    <div class="profile">
+        <form class="profile__form" id="profile-form" >
           <h1>Profile for Trainer</h1>
 
           <!-- <input
@@ -46,7 +44,7 @@
           <label for="minimum_charge">Minimum Charge:</label>
           <input
             type="text"
-            id="minimumcharge_profileform"
+            id="minimumcharge-profileform"
             name="minimumcharge"
             class="minimumcharge"
             placeholder="Minimum charge"
@@ -56,17 +54,17 @@
           <label for="available_time">Available Time:</label>
           <input
           type="text"
-          id="min-charge_profileform"
-          name="minimum_charge"
-          class="minimum_charge"
-          placeholder="Minimum charge"
+          id="availabletime-profileform"
+          name="availabletime"
+          class="available-time"
+          placeholder="Available time"
           required
         />
 
         <label for="address">Address:</label>
         <input
         type="text"
-        id="address_profileform"
+        id="address-profileform"
         name="address"
         class="address"
         placeholder="Address"
@@ -74,16 +72,16 @@
       />
 
       <label for="specialization">Specialization:</label>
-        <select id="specialization" name="specialization" required>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+        <select id="specialization-profileform" name="specialization" required>
+            <option value="Leg">Leg</option>
+            <option value="Biceps">Biceps</option>
+            <option value="Chest">Chest</option>
             <!-- Add more options as needed -->
         </select>
       <label for="experience">Experience:</label>
       <input
         type="text"
-        id="experience_profleform"
+        id="experience-profileform"
         name="experience"
         class="expreience"
         placeholder="Experience years"
@@ -92,21 +90,21 @@
       <label for="contact_number">Contact Number:</label>
       <input
       type="tel"
-      id="contact_profleform"
+      id="contact-profileform"
       name="contact"
       class="contact"
       placeholder="Contact Number"
       required
     />
-          <button class="signup btn" type="submit" id="signup-btn">
+          <button class="addProfile-btn" type="submit" id="">
             Add Profile
           </button>
-          <button class="signup btn" type="submit" id="signup-btn">
+          <!-- <button class="signup btn" type="submit" id="signup-btn">
             Update Profile
           </button>
           <button class="signup btn" type="submit" id="signup-btn">
           Delete
-          </button>
+          </button> -->
         </form>
       </div>
     </div>

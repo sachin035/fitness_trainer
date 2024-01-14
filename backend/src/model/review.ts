@@ -34,7 +34,7 @@ export default class ReviewModel extends BaseModel {
     return result;
   }
 
-  static async getByIdReview(profile_id) {
+  static async getByIdReview(profile_id: number) {
     const result = await this.queryBuilder()
       .select({
         review_id: "reviews.review_id",

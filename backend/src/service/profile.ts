@@ -3,10 +3,15 @@ import ProfileModel from "../model/profile";
 import { IProfile } from "../interface/profile";
 import NotFoundError from "../error/notFoundError";
 
+export const getProfile = async (user_id: number) => {
+  const getProfile = await profileServices.getProfile(user_id);
+  return {
+    profile: getProfile,
+    message: "Profile got successfully",
+  };
+};
+
 export const createProfile = async (profileData: IProfile) => {
-  // const newProfile = {
-  //   ...profileData,
-  // };
   await profileServices.createProfile(profileData);
   return {
     profile: profileData,
@@ -17,12 +22,11 @@ export const createProfile = async (profileData: IProfile) => {
 export const getAllProfile = async () => {
   return await profileServices.getAllProfile();
 };
-export const getProfile = async (user_id: number) => {
-  const getProfile = await profileServices.getProfile(user_id);
-  return {
-    profile: getProfile,
-    message: "Profile got successfully",
-  };
+export const getFilteredProfile = async (
+  category: string,
+  location: string
+) => {
+  return await profileServices.getFilteredProfile(category, location);
 };
 
 export const deleteProfile = async (user_id: number) => {

@@ -19,16 +19,16 @@ export const auth = async (req: any, res: Response, next: NextFunction) => {
     console.log(user);
 
     req.user_id = user.id as number;
-    const profile = await profileServices.getProfile(req.user_id);
-    console.log("auth ko ho", profile);
+    // const profile = await profileServices.getProfile(req.user_id);
+    // console.log("auth ko ho", profile);
 
     // req.profile_id = profile.id as number;
-    if (!profile) {
-      throw new UnauthenticatedError("Profile not found");
-    }
+    // if (!profile) {
+    //   throw new UnauthenticatedError("Profile not found");
+    // }
 
-    req.profile = profile.profile.profileId as number;
-    console.log("auth 2nd part", req.profile);
+    // req.profile = profile.profile.profileId as number;
+    // console.log("auth 2nd part", req.profile);
 
     next();
   } catch (error) {

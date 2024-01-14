@@ -22,7 +22,7 @@ const createProfileSchema = Joi.object({
   experience: Joi.string().required().max(225).messages({
     "required.any": " experience is required",
   }),
-  contact_number: Joi.string().required().max(225).messages({
+  contact_number: Joi.string().required().max(10).messages({
     "required.any": "contact_number is required",
   }),
 });

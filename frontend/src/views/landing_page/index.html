@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,11 +15,9 @@
           <ul class="header__nav">
             <a class="header__nav--item" style="color: white;" href="#">Home</a>
             <li>
-              <a class="header__nav--item" href="#">Add Profiles</a>
+              <a class="header__nav--item" href="./../profileForm/profile.html">
+                Add Profiles</a>
             </li>
-            <!-- <li>
-              <a class="header__nav--item" href="#">Find Trainer</a>
-            </li> -->
             <li>
               <a class="header__nav--item" href="#">Contact Us</a>
             </li>
@@ -130,6 +128,158 @@
         </div>
     </div>
 </section>
+<script type="module" src="./main.ts"></script>
+  </body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <title>Landing Page</title>
+  </head>
+  <body>
+    <div class="container header">
+        <div class="header__title">
+          <h2>Fitness Trainer</h2>
+        </div>
+        <nav>
+          <ul class="header__nav">
+            <a class="header__nav--item" style="color: white;" href="#">Home</a>
+            <li>
+              <a class="header__nav--item" href="./../profileForm/profile.html">
+                Add Profiles</a>
+            </li>
+            <!-- <li>
+              <a class="header__nav--item" href="#">Find Trainer</a>
+            </li> -->
+            <li>
+              <a class="header__nav--item" href="#">Contact Us</a>
+            </li>
+            <li>
+            <div class="header__nav--button">
+              <button class="btn-logout">Log Out</button>
+            </div>
+          </li>
+          </ul>
+
+        </nav>
+        
+      </div>
+    </header>
+
+
+    <section class="container search">
+        <div class="search__searchContainer">
+          <div class="search__top">
+            <h1>Find <span>Professional's</span> to train </h1>
+            <p>Expert's are waiting to train you...</p>
+          </div>
+          <div class="search__bottom">
+            <div class="search__bottom--categories" id="search-categories">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#4AA2F2"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-search"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+              <input
+                type="text"
+                placeholder="What categories you are looking for?"
+              />
+            </div>
+
+            <div class="search__bottom--location" id="search-location">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#4AA2F2"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-map-pin"
+              >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <input type="text" placeholder="Location" />
+            </div>
+
+            <button type="submit" class="btn">Search</button>
+          </div>
+        </div>
+      </section>
+
+<section class="container_profile">
+<!--     <div class="profile__card"> -->
+<!--         <div class="profile__image"> -->
+<!--             <div class="profile__image--imagewrapper"> -->
+<!--                 <img src="../../assets/images/download.jpg"/> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="profile__content"> -->
+<!--             <h3 class="profile__content--fullname">sachin manandhar</h3> -->
+<!--             <h5 class="profile__content--location">bhaktapur</h5> -->
+<!--             <h5 class="profile__content--category">powerlifting</h5> -->
+<!--             <p class="profile__content--description">hey i am sachin manandhar</p> -->
+<!--         </div> -->
+<!--         <div class="profile__button"> -->
+<!--             <button>view more</button> -->
+<!--         </div> -->
+<!--     </div> -->
+</section>
+<!---->
+<!---->
+<!---->
+<!-- <section class="container profile"> -->
+<!--     <div class="profile__card"> -->
+<!--         <div class="profile__image"> -->
+<!--             <div class="profile__image--imageWrapper"> -->
+<!--                 <img src="../../assets/images/download.jpg"/> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="profile__content"> -->
+<!--             <p class="profile__content--fullname">Name:Sachin Manandhar</p> -->
+<!--             <p class="profile__content--location">Location:Bhaktapur</p> -->
+<!--             <p class="profile__content--category">Category:PowerLifting</p> -->
+<!--             <p class="profile__content--available_time">AVailable_time:7am</p> -->
+<!--             <p class="profile__content--minimum-charge">Minimum Charge:1200</p> -->
+<!--             <p class="profile__content--contact">Contact Number:8643131</p> -->
+<!--         </div> -->
+<!--         <div class="profile__review"> -->
+<!--           <p>Very good</p> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </section> -->
+
+<!-- Modal -->
+
+
+<div id="myModal" class="modal">
+  <div class="modal-container" id="modalContainer">
+    <span class="close" id="closeButton">&times;</span>
+    <h3 id="modalTitle" class="modal-title">Detailed Information</h3>
+    <div class="modal-content" id="modalContent">
+      <!-- Additional details go here. -->
+    </div>
+  </div>
+</div>
 <script type="module" src="./main.ts"></script>
   </body>
 </html>

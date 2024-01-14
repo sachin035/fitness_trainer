@@ -7,5 +7,5 @@ export interface IProfile {
   specialization: string;
   experience: string;
   contact_number: string;
-  user_id?: number;
+  user_id: number;
 }
