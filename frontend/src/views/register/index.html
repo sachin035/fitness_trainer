@@ -2,30 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fitness</title>
     <link rel="stylesheet" href="../../styles/style.css" />
-    <!-- <link rel="stylesheet" href="./src/style/style.css" /> -->
   </head>
   <body>
     <div class="form-control">
       <div class="form-left" id="form-img">
-        <img src="../../assets/images/trainer.jpg" alt="gym" class="eros" />
+        <img
+          src="../../assets/images/logo-bottom.jpg"
+          alt="gym"
+          class="logo-bottom"
+        />
       </div>
       <div class="divider"></div>
       <div class="form-right">
         <form class="signup-form form" id="signup-form">
+          <div
+            id="signup-success-message"
+            class="d-none alert alert-success"
+          ></div>
           <h1>Create Account</h1>
-
-          <!-- <input
-            type="text"
-            id="full-name"
-            name="full-name"
-            class="full-name"
-            placeholder="Full Name"
-            required
-          /> -->
 
           <input
             type="text"
@@ -63,6 +60,10 @@
             <a href="./../login/" id="login-anchor">log in</a> instead.
           </p>
         </form>
+        <div class="main-page">
+          <a href="./../front_page/" id="redirect-frontpage">click here</a> to
+          goback to frontpage.
+        </div>
       </div>
     </div>
 

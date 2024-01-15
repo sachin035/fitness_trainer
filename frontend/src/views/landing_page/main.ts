@@ -3,6 +3,18 @@ const logoutBtn = document.querySelector(".btn-logout") as HTMLButtonElement;
 const searchBtn = document.querySelector(".btn") as HTMLButtonElement;
 const accessToken = localStorage.getItem("accessToken");
 
+const categorySelect = document.getElementById(
+  "categorySelect"
+) as HTMLSelectElement | null;
+const selectedCategory = document.getElementById(
+  "selectedCategory"
+) as HTMLInputElement | null;
+
+if (categorySelect && selectedCategory) {
+  categorySelect.addEventListener("change", function () {
+    selectedCategory.value = this.value;
+  });
+}
 const http = axios.create({
   baseURL: "http://localhost:3500",
 });
@@ -15,12 +27,12 @@ logoutBtn.addEventListener("click", async function (e) {
 searchBtn?.addEventListener("click", async function (e) {
   e.preventDefault();
   const category = (
-    document.getElementById("search-categories") as HTMLInputElement
+    document.getElementById("categorySelect") as HTMLInputElement
   ).value;
   const location = (
-    document.getElementById("search-location") as HTMLInputElement
+    document.getElementById("selectedLocation") as HTMLInputElement
   ).value;
-
+  // console.log("esma", category, location);
   try {
     if (accessToken) {
       const response = await http({
@@ -28,7 +40,7 @@ searchBtn?.addEventListener("click", async function (e) {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-        data: {
+        params: {
           category,
           location,
         },
@@ -70,6 +82,7 @@ window.onload = async function () {
 
     if (response.ok) {
       profiles = await response.json();
+      console.log(profiles);
       updateHtmlWithApiProfiles(profiles);
     } else {
       console.error(
@@ -81,7 +94,7 @@ window.onload = async function () {
   } catch (error) {
     console.error("An error occurred during the API request:", error);
   }
-  const profileContainer = document.querySelector(".container_profile");
+  const profileContainer = document.querySelector(".profile");
   const modal = document.getElementById("myModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalContent = document.getElementById("modalContent");
@@ -92,6 +105,7 @@ window.onload = async function () {
   }
   profileContainer.addEventListener("click", function (event) {
     const target = event.target as HTMLElement;
+    console.log({ target });
     const isViewMoreButton =
       target.tagName === "BUTTON" && target.classList.contains("view-more-btn");
 
@@ -101,11 +115,13 @@ window.onload = async function () {
 
       // You can add logic here to update the modal content based on the clicked profile
       const clickedProfileId = target.getAttribute("data-profile-id");
+      console.log({ clickedProfileId });
       const clickedProfile = profiles.find(
         (profile) => Number(profile.profileId) === Number(clickedProfileId)
       );
 
       if (clickedProfile) {
+        console.log({ clickedProfile });
         updateModalContent(clickedProfile);
       }
     }
@@ -118,7 +134,7 @@ window.onload = async function () {
   });
   function updateModalContent(profile: Profile) {
     if (!modalContent || !modalTitle) {
-      console.error("No dom complets");
+      console.error("No dom completes");
       return;
     }
     const imageURL = "../../assets/images/download.jpg";
@@ -135,9 +151,9 @@ window.onload = async function () {
     description.innerText = `Description: ${profile.description}`;
     detailsContainer.appendChild(description);
 
-    const location = document.createElement("p");
-    location.innerText = `Location: ${profile.address}`;
-    detailsContainer.appendChild(location);
+    const address = document.createElement("p");
+    address.innerText = `Location: ${profile.address}`;
+    detailsContainer.appendChild(address);
 
     const category = document.createElement("p");
     category.innerText = `Category: ${profile.specialization}`;
@@ -189,7 +205,7 @@ window.onload = async function () {
 };
 
 function updateHtmlWithApiProfiles(profiles: Profile[]) {
-  const profileContainer = document.querySelector(".container_profile");
+  const profileContainer = document.querySelector(".profile");
   if (!profileContainer) {
     console.error("Profile container not found in the DOM");
     return;
@@ -223,7 +239,7 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
 
     const category = document.createElement("h5");
     category.className = "profile__content--category";
-    category.innerText = profile.specialization;
+    category.innerText = `${profile.specialization} specialist`;
 
     const description = document.createElement("p");
     description.className = "profile__content--description";

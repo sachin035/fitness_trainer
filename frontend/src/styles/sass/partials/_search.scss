@@ -1,5 +1,66 @@
 .search {
+  padding: 20px 0;
   &__bottom {
-    @include flex(row, space-between);
+    @include flex(row, none);
+
+    &--speciality {
+      @include flex(row, flex-basis);
+      flex-basis: 40%;
+      gap: 20px;
+      position: relative;
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #4aa2f2;
+        border-radius: 5px;
+        outline: none;
+        &::placeholder {
+          color: black; /* Placeholder text color */
+          opacity: 0.7; /* Placeholder text opacity */
+        }
+      }
+      select {
+        position: absolute;
+        left: 65%;
+      }
+    }
+    &--address {
+      @include flex(row, center);
+      flex-basis: 40%;
+      gap: 10px;
+      svg {
+        margin-left: 20px;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #4aa2f2;
+        border-radius: 5px;
+        outline: none;
+        &::placeholder {
+          color: black; /* Placeholder text color */
+          opacity: 0.7; /* Placeholder text opacity */
+        }
+      }
+    }
+    &--button {
+      margin-left: 30px;
+      button {
+        font-weight: 700;
+        border: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        font-size: 24px;
+        padding: 20px 25px;
+        color: $black;
+        background: orange;
+        cursor: pointer;
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
   }
 }

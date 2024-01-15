@@ -4,6 +4,7 @@ const loginForm = document.getElementById("login-form");
 const loginSuccessMessage = document.getElementById(
   "login-success-message"
 ) as HTMLElement;
+loginSuccessMessage.style.color = "red";
 // const loginValidationError = document.getElementById(
 //   "login-error-message"
 // ) as HTMLElement;

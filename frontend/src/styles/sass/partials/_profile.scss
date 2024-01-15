@@ -1,19 +1,24 @@
 .profile {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(400px, 1fr)
+  ); /* Adjust the minimum and maximum width as needed */
+  grid-gap: 20px; /* Adjust the gap between items as needed */
   &__card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 500px;
-    height: 600px;
+    width: 400px;
+    min-height: 600px;
     @include flex(column, center);
     gap: 15px;
-    margin: 0;
-    padding: 0;
+    margin: 15px 15px;
   }
   &__image {
-    height: 200px;
+    height: 100px;
     width: 100%;
     border-radius: 25px 25px 25px 25px;
     background-color: rgb(238, 194, 113);
@@ -29,7 +34,7 @@
       transform: translate(-50%, -50%);
       img {
         background-color: #eee;
-        height: 170px;
+        height: 100px;
         width: 170px;
         border-radius: 50%;
         border: 4px solid black;
@@ -38,16 +43,28 @@
   }
 
   &__content {
-    @include flex(column, space-between);
-    gap: 15px;
+    @include flex(column, center);
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
     p {
-      font-size: 20px;
-      line-height: 5px;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #555;
+    }
+    h3 {
+      font-size: 24px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    h5 {
+      font-size: 16px;
+      color: #777;
     }
   }
 
   &__button {
-    margin-top: 40px;
+    margin: 40px;
     button {
       font-weight: 700;
       border: none;

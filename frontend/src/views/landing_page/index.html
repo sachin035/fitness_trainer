@@ -143,7 +143,8 @@
     <title>Landing Page</title>
   </head>
   <body>
-    <div class="container header">
+    <header>
+      <div class="container header">
         <div class="header__title">
           <h2>Fitness Trainer</h2>
         </div>
@@ -151,14 +152,14 @@
           <ul class="header__nav">
             <a class="header__nav--item" style="color: white;" href="#">Home</a>
             <li>
-              <a class="header__nav--item" href="./../profileForm/profile.html">
+              <a class="header__nav--item"  href="./../profileForm/profile.html" >
                 Add Profiles</a>
             </li>
             <!-- <li>
               <a class="header__nav--item" href="#">Find Trainer</a>
             </li> -->
             <li>
-              <a class="header__nav--item" href="#">Contact Us</a>
+              <a class="header__nav--item" href="#">MyProfile</a>
             </li>
             <li>
             <div class="header__nav--button">
@@ -176,33 +177,48 @@
     <section class="container search">
         <div class="search__searchContainer">
           <div class="search__top">
-            <h1>Find <span>Professional's</span> to train </h1>
-            <p>Expert's are waiting to train you...</p>
+            <!-- <h1>Find <span>Professional's</span> to train </h1>
+            <p>Expert's are waiting to train you...</p> -->
           </div>
           <div class="search__bottom">
-            <div class="search__bottom--categories" id="search-categories">
+            <div class="search__bottom--speciality" id="search-speciality">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#4AA2F2"
-                stroke-width="1.25"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-search"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
+  xmlns="http://www.w3.org/2000/svg"
+  width="28"
+  height="28"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#4AA2F2"
+  stroke-width="1.25"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-categories"
+>
+  <rect x="4" y="4" width="6" height="6" />
+  <rect x="14" y="4" width="6" height="6" />
+  <rect x="4" y="14" width="6" height="6" />
+  <rect x="14" y="14" width="6" height="6" />
+</svg>
+<select id="categorySelect" class="category-select">
+  <option value="" disabled selected>category</option>
+  <option value="powerlifting">Powerlifting</option>
+  <option value="cardio">Cardio</option>
+  <option value="yoga">Yoga</option>
+    <option value="crossfit">CrossFit</option>
+  <option value="aerobics">Aerobics</option>
+  <option value="weightlifting">Weightlifting</option>
+
+</select>
+
               <input
                 type="text"
-                placeholder="What categories you are looking for?"
+                placeholder="category?"
+                id="selectedCategory"
+                disabled
               />
             </div>
 
-            <div class="search__bottom--location" id="search-location">
+            <div class="search__bottom--address" id="search-address">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -218,15 +234,15 @@
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              <input type="text" placeholder="Location" />
+              <input  type="text" id="selectedLocation" placeholder="Location" />
             </div>
-
+            <div class="search__bottom--button">
             <button type="submit" class="btn">Search</button>
           </div>
         </div>
       </section>
 
-<section class="container_profile">
+<section class="container profile">
 <!--     <div class="profile__card"> -->
 <!--         <div class="profile__image"> -->
 <!--             <div class="profile__image--imagewrapper"> -->

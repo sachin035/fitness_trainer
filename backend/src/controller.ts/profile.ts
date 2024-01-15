@@ -41,8 +41,9 @@ export interface IFilteredProfile {
 }
 export async function getFilteredProfile(req: Request, res: Response) {
   // console.log(req);
+  // console.log("esma", req.body);
   // console.log(req.query);
-  console.log(req.query);
+  console.log("tesma", req.query);
   const response = req.query;
   if (
     typeof response.category === "string" &&
@@ -75,6 +76,19 @@ export async function getFilteredProfile(req: Request, res: Response) {
       res.status(500).json({ message: "Something went wrong" });
     }
   }
+  //   const { category, location } = req.query;
+  //   if (category || location) {
+  //     try {
+  //       const profiles = await profileServices.getFilteredProfile(
+  //         category as string,
+  //         location as string
+  //       );
+  //       console.log(profiles);
+  //       res.json(profiles);
+  //     } catch (error) {
+  //       res.status(500).json({ message: "Something went wrong" });
+  //     }
+  //   }
 }
 
 export async function getProfile(req: Request, res: Response) {

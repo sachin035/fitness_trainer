@@ -1,6 +1,9 @@
 .form-control {
   width: 70%;
+  top: 50%;
+  margin: auto;
   @include flex(row, space-between);
+
   position: relative;
   background-color: whitesmoke;
   border: 2px solid black;
@@ -8,22 +11,25 @@
   min-height: 750px;
 }
 .form-control .form-left {
-  flex-basis: 30%;
+  padding-left: 50px;
+  flex-basis: 100%;
   border-radius: 15px 0 0 15px;
   border-right: none;
   max-width: 350px;
   position: relative;
 }
-.form-control .form-left .eros {
+
+.form-control .form-left .logo-bottom {
   max-width: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  background: transparent;
 }
 .form-control .divider {
   position: absolute;
   top: 50%;
-  left: 45%;
+  left: 40%;
   transform: translateY(-50%);
   height: 75%;
   width: 3px;
@@ -32,7 +38,7 @@
 .form-control .form {
   display: flex;
   flex-direction: column;
-  padding: 80px 150px;
+  padding: 80px 50px 80px 150px;
   border-radius: 0 15px 15px 0;
   gap: 25px;
 }
@@ -42,7 +48,7 @@
   width: 100%;
   border: none;
   background-color: whitesmoke;
-  color: chocolate;
+  color: black;
   border-bottom: 1px solid black;
 }
 .form-control .form input:active,
@@ -52,12 +58,20 @@
   border-bottom: 1px solid black;
 }
 .form-control .form .btn {
-  background-color: #e0dcb9;
+  background-color: black;
+  color: white;
   margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
+.form-control .form p #register-anchor #login-anchor {
+  color: rgb(8, 8, 122);
+}
 .form-control .form.hidden {
   display: none;
+}
+.form-control .main-page {
+  margin-top: 15px;
+  text-align: end;
 }

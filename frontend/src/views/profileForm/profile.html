@@ -9,8 +9,8 @@
     <!-- <link rel="stylesheet" href="./src/style/style.css" /> -->
   </head>
   <body>
-    <div class="profile">
-        <form class="profile__form" id="profile-form" >
+    <div class="container profileData">
+        <form class="profileData__form" id="profileData-form" >
           <h1>Profile for Trainer</h1>
 
           <!-- <input
@@ -39,8 +39,11 @@
           required>
             
           </textarea>
+
+          <!-- <label for="photoInput">Choose a photo:</label>
+          <input type="file" id="photoInput" name="photo" accept="image/*">
            
-          
+           -->
           <label for="minimum_charge">Minimum Charge:</label>
           <input
             type="text"
@@ -73,9 +76,15 @@
 
       <label for="specialization">Specialization:</label>
         <select id="specialization-profileform" name="specialization" required>
-            <option value="Leg">Leg</option>
-            <option value="Biceps">Biceps</option>
-            <option value="Chest">Chest</option>
+          <option value="" disabled selected>specialization</option>
+          <option value="powerlifting">Powerlifting</option>
+          <option value="cardio">Cardio</option>
+          <option value="yoga">Yoga</option>
+            <option value="crossfit">CrossFit</option>
+          <option value="aerobics">Aerobics</option>
+          <option value="weightlifting">Weightlifting</option>
+          <!-- Add more options as needed -->
+        </select>
             <!-- Add more options as needed -->
         </select>
       <label for="experience">Experience:</label>
@@ -109,6 +118,7 @@
       </div>
     </div>
 
+    <div class="successContainer"></div>
     <script type="module" src="./main.ts"></script>
   </body>
 </html>

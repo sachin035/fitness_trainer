@@ -1,6 +1,7 @@
 import BaseModel from "./baseModel";
 
 import { IProfile } from "../interface/profile";
+import { Knex } from "knex";
 
 export default class ProfileModel extends BaseModel {
   static async createProfile(profileData: IProfile) {
@@ -26,18 +27,48 @@ export default class ProfileModel extends BaseModel {
     // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
   }
 
-  static async getFilteredProfile(category: string, location: string) {
-    const result = await this.queryBuilder()
+  static async getFilteredProfile(
+    category: string | undefined,
+    location: string | undefined
+  ) {
+    let query = await this.queryBuilder()
       .select({
-        specialization: "profiles.specialization",
+        profile_id: "profiles.profile_id",
+        fullname: "profiles.fullname",
+        description: "profiles.description",
+        available_time: "profiles.available_time",
         address: "profiles.address",
+        minimum_charge: "profiles.minimum_charge",
+        specialization: "profiles.specialization",
+        contact_number: "profiles.contact_number",
+        experience: "profiles.experience",
       })
       .from("profiles")
+
       .where("profiles.specialization", category)
       .where("profiles.address", location);
-    return result;
-    // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
+
+    return query;
   }
+
+  // if (category || location) {
+  //   query = query.where((builder) => {
+  //     if (category) {
+  //       builder = builder.where("profiles.specialization", category);
+  //     }
+
+  //     if (location) {
+  //       builder = builder.orWhere("profiles.address", location);
+  //     }
+
+  //     return builder;
+  //   });
+  // }
+
+  // const result = await query;
+
+  // return result;
+  // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
 
   static async getProfile(user_id: number) {
     return (
