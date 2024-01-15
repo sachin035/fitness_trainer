@@ -1,4 +1,5 @@
-<!-- <!DOCTYPE html>
+<!-- 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +8,8 @@
     <title>Landing Page</title>
   </head>
   <body>
-    <div class="container header">
+    <header>
+      <div class="container header">
         <div class="header__title">
           <h2>Fitness Trainer</h2>
         </div>
@@ -15,11 +17,14 @@
           <ul class="header__nav">
             <a class="header__nav--item" style="color: white;" href="#">Home</a>
             <li>
-              <a class="header__nav--item" href="./../profileForm/profile.html">
+              <a class="header__nav--item"  href="./../profileForm/profile.html" >
                 Add Profiles</a>
             </li>
-            <li>
-              <a class="header__nav--item" href="#">Contact Us</a>
+            lala <li>
+              <a class="header__nav--item" href="#">Find Trainer</a>
+            </li>commentend -->
+            <!-- <li>
+              <a class="header__nav--item" href="#">MyProfile</a>
             </li>
             <li>
             <div class="header__nav--button">
@@ -31,39 +36,54 @@
         </nav>
         
       </div>
-    </header>
+    </header>  -->
 
 
-    <section class="container search">
+    <!-- <section class="container search">
         <div class="search__searchContainer">
           <div class="search__top">
             <h1>Find <span>Professional's</span> to train </h1>
             <p>Expert's are waiting to train you...</p>
           </div>
           <div class="search__bottom">
-            <div class="search__bottom--categories">
+            <div class="search__bottom--speciality" id="search-speciality">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#4AA2F2"
-                stroke-width="1.25"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-search"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
+  xmlns="http://www.w3.org/2000/svg"
+  width="28"
+  height="28"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#4AA2F2"
+  stroke-width="1.25"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-categories"
+>
+  <rect x="4" y="4" width="6" height="6" />
+  <rect x="14" y="4" width="6" height="6" />
+  <rect x="4" y="14" width="6" height="6" />
+  <rect x="14" y="14" width="6" height="6" />
+</svg>
+<select id="categorySelect" class="category-select">
+  <option value="" disabled selected>category</option>
+  <option value="powerlifting">Powerlifting</option>
+  <option value="cardio">Cardio</option>
+  <option value="yoga">Yoga</option>
+    <option value="crossfit">CrossFit</option>
+  <option value="aerobics">Aerobics</option>
+  <option value="weightlifting">Weightlifting</option>
+
+</select>
+
               <input
                 type="text"
-                placeholder="What categories you are looking for?"
+                placeholder="category?"
+                id="selectedCategory"
+                disabled
               />
             </div>
 
-            <div class="search__bottom--location">
+            <div class="search__bottom--address" id="search-address">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -79,60 +99,71 @@
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              <input type="text" placeholder="Location" />
+              <input  type="text" id="selectedLocation" placeholder="Location" />
             </div>
-
+            <div class="search__bottom--button">
             <button type="submit" class="btn">Search</button>
           </div>
         </div>
-      </section>
+      </section> -->
 
-<section class="container profile">
-    <div class="profile__card">
-        <div class="profile__image">
-            <div class="profile__image--imageWrapper">
-                <img src="../../assets/images/download.jpg"/>
-            </div>
-        </div>
-        <div class="profile__content">
-            <h3 class="profile__content--fullname">Sachin Manandhar</h3>
-            <h5 class="profile__content--location">Bhaktapur</h5>
-            <h5 class="profile__content--category">PowerLifting</h5>
-            <p class="profile__content--description">Hey I am Sachin Manandhar</p>
-        </div>
-        <div class="profile__button">
-            <button>View More</button>
-        </div>
+<!-- <section class="container profile"> -->
+<!--     <div class="profile__card"> -->
+<!--         <div class="profile__image"> -->
+<!--             <div class="profile__image--imagewrapper"> -->
+<!--                 <img src="../../assets/images/download.jpg"/> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="profile__content"> -->
+<!--             <h3 class="profile__content--fullname">sachin manandhar</h3> -->
+<!--             <h5 class="profile__content--location">bhaktapur</h5> -->
+<!--             <h5 class="profile__content--category">powerlifting</h5> -->
+<!--             <p class="profile__content--description">hey i am sachin manandhar</p> -->
+<!--         </div> -->
+<!--         <div class="profile__button"> -->
+<!--             <button>view more</button> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </section> -->
+<!---->
+<!---->
+<!---->
+<!-- <section class="container profile"> -->
+<!--     <div class="profile__card"> -->
+<!--         <div class="profile__image"> -->
+<!--             <div class="profile__image--imageWrapper"> -->
+<!--                 <img src="../../assets/images/download.jpg"/> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="profile__content"> -->
+<!--             <p class="profile__content--fullname">Name:Sachin Manandhar</p> -->
+<!--             <p class="profile__content--location">Location:Bhaktapur</p> -->
+<!--             <p class="profile__content--category">Category:PowerLifting</p> -->
+<!--             <p class="profile__content--available_time">AVailable_time:7am</p> -->
+<!--             <p class="profile__content--minimum-charge">Minimum Charge:1200</p> -->
+<!--             <p class="profile__content--contact">Contact Number:8643131</p> -->
+<!--         </div> -->
+<!--         <div class="profile__review"> -->
+<!--           <p>Very good</p> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </section> -->
+
+<!-- Modal -->
+
+
+<!-- <div id="myModal" class="modal">
+  <div class="modal-container" id="modalContainer">
+    <span class="close" id="closeButton">&times;</span>
+    <h3 id="modalTitle" class="modal-title">Detailed Information</h3>
+    <div class="modal-content" id="modalContent">
+     
     </div>
-</section>
-
-
-
-<section class="container profile">
-    <div class="profile__card">
-        <div class="profile__image">
-            <div class="profile__image--imageWrapper">
-                <img src="../../assets/images/download.jpg"/>
-            </div>
-        </div>
-        <div class="profile__content">
-            <p class="profile__content--fullname">Name:Sachin Manandhar</p>
-            <p class="profile__content--location">Location:Bhaktapur</p>
-            <p class="profile__content--category">Category:PowerLifting</p>
-            <p class="profile__content--available_time">AVailable_time:7am</p>
-            <p class="profile__content--minimum-charge">Minimum Charge:1200</p>
-            <p class="profile__content--contact">Contact Number:8643131</p>
-        </div>
-        <div class="profile__review">
-          <p>Very good</p>
-        </div>
-    </div>
-</section>
+  </div>
+</div>
 <script type="module" src="./main.ts"></script>
   </body>
 </html> -->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -159,7 +190,7 @@
               <a class="header__nav--item" href="#">Find Trainer</a>
             </li> -->
             <li>
-              <a class="header__nav--item" href="#">MyProfile</a>
+              <a class="header__nav--item" href="./../my_profile/index.html">MyProfile</a>
             </li>
             <li>
             <div class="header__nav--button">
@@ -243,49 +274,8 @@
       </section>
 
 <section class="container profile">
-<!--     <div class="profile__card"> -->
-<!--         <div class="profile__image"> -->
-<!--             <div class="profile__image--imagewrapper"> -->
-<!--                 <img src="../../assets/images/download.jpg"/> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         <div class="profile__content"> -->
-<!--             <h3 class="profile__content--fullname">sachin manandhar</h3> -->
-<!--             <h5 class="profile__content--location">bhaktapur</h5> -->
-<!--             <h5 class="profile__content--category">powerlifting</h5> -->
-<!--             <p class="profile__content--description">hey i am sachin manandhar</p> -->
-<!--         </div> -->
-<!--         <div class="profile__button"> -->
-<!--             <button>view more</button> -->
-<!--         </div> -->
-<!--     </div> -->
+
 </section>
-<!---->
-<!---->
-<!---->
-<!-- <section class="container profile"> -->
-<!--     <div class="profile__card"> -->
-<!--         <div class="profile__image"> -->
-<!--             <div class="profile__image--imageWrapper"> -->
-<!--                 <img src="../../assets/images/download.jpg"/> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         <div class="profile__content"> -->
-<!--             <p class="profile__content--fullname">Name:Sachin Manandhar</p> -->
-<!--             <p class="profile__content--location">Location:Bhaktapur</p> -->
-<!--             <p class="profile__content--category">Category:PowerLifting</p> -->
-<!--             <p class="profile__content--available_time">AVailable_time:7am</p> -->
-<!--             <p class="profile__content--minimum-charge">Minimum Charge:1200</p> -->
-<!--             <p class="profile__content--contact">Contact Number:8643131</p> -->
-<!--         </div> -->
-<!--         <div class="profile__review"> -->
-<!--           <p>Very good</p> -->
-<!--         </div> -->
-<!--     </div> -->
-<!-- </section> -->
-
-<!-- Modal -->
-
 
 <div id="myModal" class="modal">
   <div class="modal-container" id="modalContainer">

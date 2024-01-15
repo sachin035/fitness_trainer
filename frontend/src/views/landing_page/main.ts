@@ -33,6 +33,8 @@ searchBtn?.addEventListener("click", async function (e) {
     document.getElementById("selectedLocation") as HTMLInputElement
   ).value;
   // console.log("esma", category, location);
+
+  let profiles: Profile[];
   try {
     if (accessToken) {
       const response = await http({
@@ -48,11 +50,25 @@ searchBtn?.addEventListener("click", async function (e) {
       });
 
       console.log(response);
+      profiles = [];
+      if (response.data) {
+        profiles = await response.data;
+        console.log(profiles);
+        console.log("akjnda");
+        updateHtmlWithApiProfiles(profiles);
+      } else {
+        console.error(
+          "API request failed:",
+          response.status,
+          response.statusText
+        );
+      }
     }
   } catch (error: any) {
-    const showError = error.response.data.message;
-    console.log(showError);
-    confirm(showError);
+    console.log(error);
+    //   const showError = error.response.message;
+    //   console.log(showError);
+    //   confirm(showError);
   }
 });
 
@@ -62,7 +78,7 @@ interface Profile {
   address: string;
   specialization: string;
   description: string;
-  imageURL: string;
+  photo: string;
   availableTime: string;
   minimumCharge: string;
   contactNumber: string;
@@ -79,7 +95,6 @@ window.onload = async function () {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
     if (response.ok) {
       profiles = await response.json();
       console.log(profiles);
@@ -137,7 +152,8 @@ window.onload = async function () {
       console.error("No dom completes");
       return;
     }
-    const imageURL = "../../assets/images/download.jpg";
+    // const imageURL = "../../assets/images/download.jpg";
+
     modalTitle.innerText = `Details for ${profile.fullname}`;
 
     // Create a container for the profile details
@@ -174,7 +190,7 @@ window.onload = async function () {
     // Add the details container to the modal content
     modalContent.innerHTML = ""; // Clear existing content
     const profileImage = document.createElement("img");
-    profileImage.src = imageURL;
+    profileImage.src = profile.photo;
     profileImage.alt = profile.fullname;
     profileImage.className = "profile-image";
 
@@ -210,7 +226,7 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
     console.error("Profile container not found in the DOM");
     return;
   }
-  const imageURL = "../../assets/images/download.jpg";
+  // const imageURL = "../../assets/images/download.jpg";
 
   profiles.forEach((profile) => {
     // Create HTML elements
@@ -224,7 +240,7 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
     imageWrapper.className = "profile__image--imagewrapper";
 
     const profileImage = document.createElement("img");
-    profileImage.src = imageURL;
+    profileImage.src = profile.photo;
 
     const profileContent = document.createElement("div");
     profileContent.className = "profile__content";
@@ -252,14 +268,7 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
     viewMoreButton.className = "view-more-btn";
     viewMoreButton.innerText = "View More";
     viewMoreButton.setAttribute("data-profile-id", String(profile.profileId));
-    // Add click event listener to each "View More" button
-    // viewMoreButton.addEventListener('click', function () {
-    //   // Toggle the visibility of the detailed card
-    //   detailedCard.style.display = detailedCard.style.display === 'none' ? 'block' : 'none';
-    //   // You can add logic here to update the detailed card content based on the clicked profile
-    // });
 
-    // Append elements to the DOM
     imageWrapper.appendChild(profileImage);
 
     divImage.appendChild(imageWrapper);

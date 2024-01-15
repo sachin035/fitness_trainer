@@ -1,28 +1,28 @@
 import axios, { HttpStatusCode } from "axios";
 const profileForm = document.getElementById("profileData-form") as HTMLElement;
-//const photoInput = document.getElementById("photoInput") as HTMLElement;
+const photoInput = document.getElementById("photoInput") as HTMLElement;
 
-//let imageData = "";
-// photoInput?.addEventListener("change", handleFileSelect);
-// function handleFileSelect(event: any) {
-//   const fileInput = event.target;
-//   const selectedFile = fileInput?.files[0];
-//   if (selectedFile) {
-//     // const file = photoInput.files && photoInput.files[0];
-//     // if(file){
-//     const reader = new FileReader();
-//     reader.readAsDataURL(selectedFile);
-//     reader.onload = () => {
-//       imageData = reader.result as string;
-//     };
-//     // }
-//     console.log("File selected:", selectedFile);
-//     // You can perform additional actions with the selected file here
-//   } else {
-//     console.log("No file selected");
-//   }
-// }
-// console.log(imageData);
+let imageData = "";
+photoInput.addEventListener("change", handleFileSelect);
+function handleFileSelect(event: any) {
+  const fileInput = event.target;
+  const selectedFile = fileInput?.files[0];
+  if (selectedFile) {
+    // const file = photoInput.files && photoInput.files[0];
+    // if(file){
+    const reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onload = () => {
+      imageData = reader.result as string;
+    };
+    // }
+    console.log("File selected:", selectedFile);
+    // You can perform additional actions with the selected file here
+  } else {
+    console.log("No file selected");
+  }
+}
+console.log(imageData);
 // console.log("ndana");
 
 const accessToken = localStorage.getItem("accessToken");
@@ -39,7 +39,7 @@ profileForm?.addEventListener("submit", async (e) => {
   const description = (
     document.getElementById("description-profileform") as HTMLInputElement
   ).value;
-  // const photo: string = imageData;
+  const photo: string = imageData;
   const minimum_charge = (
     document.getElementById("minimumcharge-profileform") as HTMLInputElement
   ).value;
@@ -62,7 +62,7 @@ profileForm?.addEventListener("submit", async (e) => {
   console.log(
     fullname,
     description,
-    // photo,
+    photo,
     minimum_charge,
     available_time,
     contact_number
@@ -77,7 +77,7 @@ profileForm?.addEventListener("submit", async (e) => {
         data: {
           fullname,
           description,
-          // photo,
+          photo,
           available_time,
           address,
           minimum_charge,
