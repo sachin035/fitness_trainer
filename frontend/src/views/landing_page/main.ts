@@ -66,9 +66,6 @@ searchBtn?.addEventListener("click", async function (e) {
     }
   } catch (error: any) {
     console.log(error);
-    //   const showError = error.response.message;
-    //   console.log(showError);
-    //   confirm(showError);
   }
 });
 
@@ -125,7 +122,6 @@ window.onload = async function () {
       target.tagName === "BUTTON" && target.classList.contains("view-more-btn");
 
     if (isViewMoreButton) {
-      // Display the modal
       modal.style.display = "block";
 
       // You can add logic here to update the modal content based on the clicked profile
@@ -152,11 +148,9 @@ window.onload = async function () {
       console.error("No dom completes");
       return;
     }
-    // const imageURL = "../../assets/images/download.jpg";
 
     modalTitle.innerText = `Details for ${profile.fullname}`;
 
-    // Create a container for the profile details
     const detailsContainer = document.createElement("div");
 
     // Add profile details
@@ -188,29 +182,16 @@ window.onload = async function () {
     detailsContainer.appendChild(contactNumber);
 
     // Add the details container to the modal content
-    modalContent.innerHTML = ""; // Clear existing content
+    modalContent.innerHTML = "";
     const profileImage = document.createElement("img");
     profileImage.src = profile.photo;
     profileImage.alt = profile.fullname;
     profileImage.className = "profile-image";
 
-    // Add the image to the modal content
     modalContent.appendChild(profileImage);
 
     modalContent.appendChild(detailsContainer);
-
-    // Create an image element for the profile image
   }
-
-  // function updateModalContent(profile: Profile) {
-  //   if(!modalTitle || !modalContent){
-  //     console.error('Profile container not found in the DOM');
-  //     return;
-  //
-  //   }
-  //   modalTitle.innerText = `Details for ${profile.fullname}`;
-  //   modalContent.innerText = `Address: ${profile.address}\nSpecialization: ${profile.specialization}\nDescription: ${profile.description}`;
-  // }
 
   // Close the modal if the user clicks outside of it
   window.addEventListener("click", function (event) {
@@ -226,10 +207,8 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
     console.error("Profile container not found in the DOM");
     return;
   }
-  // const imageURL = "../../assets/images/download.jpg";
 
   profiles.forEach((profile) => {
-    // Create HTML elements
     const profileCard = document.createElement("div");
     profileCard.className = "profile__card";
 

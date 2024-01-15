@@ -43,16 +43,11 @@ window.onload = async function () {
     if (target.tagName === "BUTTON") {
       profileId = Number(target.getAttribute("data-profile-id"));
 
-      // Check if it's a View More button
       if (target.classList.contains("view-more-btn")) {
         handleViewMoreClick(profileId);
-      }
-      // Check if it's an Update button
-      else if (target.classList.contains("update-btn")) {
+      } else if (target.classList.contains("update-btn")) {
         handleUpdateClick(profileId);
-      }
-      // Check if it's a Delete button
-      else if (target.classList.contains("delete-btn")) {
+      } else if (target.classList.contains("delete-btn")) {
         handleDeleteClick(profileId);
       }
     }
@@ -60,22 +55,6 @@ window.onload = async function () {
 };
 async function handleViewMoreClick(profileId: number) {
   console.log("View More Clicked", profileId);
-  // 	try{
-  // const response = await http({
-  //         url: "/profile/",
-  //         headers: {
-  //           Authorization: `Bearer ${accessToken}`,
-  //         },
-  // 	method: "GET",
-  //       });
-  // 	profiles = response.data.profile
-  // 	 updateHtmlWithApiProfiles(profiles)
-  //     }
-  //    catch (error: any) {
-  //     const showError = error.response.data.message;
-  //     console.log(showError);
-  //     confirm(showError);
-  //   }
 }
 async function handleUpdateClick(profileId: number) {
   console.log("Update Clicked", profileId);
@@ -127,7 +106,6 @@ updateButtonSubmit.addEventListener("click", function () {
   handleUpdateSubmit(profileId);
 });
 
-// Function to handle Update button click event
 async function handleUpdateSubmit(profileId: number) {
   console.log("Update Clicked", profileId);
 
@@ -185,7 +163,6 @@ async function handleUpdateSubmit(profileId: number) {
   }
 }
 
-// Function to handle Delete button click event
 async function handleDeleteClick(profileId: number) {
   console.log("Delete Clicked", profileId);
   try {
@@ -212,7 +189,6 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
 
   try {
     profiles.forEach((profile) => {
-      // Create HTML elements
       const profileCard = document.createElement("div");
       profileCard.className = "profile__card";
 
