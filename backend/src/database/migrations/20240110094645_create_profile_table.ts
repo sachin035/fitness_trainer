@@ -14,6 +14,7 @@ export async function up(knex: Knex): Promise<void> {
     table.bigIncrements("profile_id").primary();
     table.string("fullname", 255).notNullable();
     table.string("description", 525).notNullable();
+    table.string("photo").nullable();
     table.string("available_time", 225).notNullable();
     table.string("address", 225).notNullable();
     table.string("minimum_charge", 225).notNullable();

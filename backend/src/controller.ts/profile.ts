@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import HttpStatus from "http-status-codes";
 import * as profileServices from "../service/profile";
 import { IProfile } from "../interface/profile";
+import { cloudinaryUpload } from "../cloudinary";
 
 interface ExtendedRequest extends Request {
   user_id: number;
@@ -11,13 +12,19 @@ export async function createProfile(
   res: Response,
   next: NextFunction
 ) {
+  console.log(req.body);
   const extendedRequest = req as ExtendedRequest;
   console.log("saclajs", extendedRequest.user_id);
+
+  const getPhoto = await cloudinaryUpload(req.body.photo);
+  console.log({ getPhoto });
+
   const profileData: IProfile = {
     ...req.body,
+    photo: getPhoto,
     user_id: extendedRequest.user_id,
   };
-  console.log(profileData);
+  console.log({ profileData });
 
   try {
     const data = await profileServices.createProfile(profileData);
@@ -103,10 +110,8 @@ export async function getProfile(req: Request, res: Response) {
 
 export async function deleteProfile(req: Request, res: Response) {
   try {
-    const extendedRequest = req as ExtendedRequest;
-    const profile = await profileServices.deleteProfile(
-      extendedRequest.user_id
-    );
+    const profileId = Number(req.params.profile_id);
+    const profile = await profileServices.deleteProfile(profileId);
     res.json(profile);
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
@@ -118,10 +123,10 @@ export async function updateProfile(
   res: Response,
   next: NextFunction
 ) {
-  const extendedRequest = req as ExtendedRequest;
+  const profileId = req.params.profile_id;
   const profileData: IProfile = {
     ...req.body,
-    user_id: extendedRequest.user_id,
+    user_id: profileId,
   };
 
   try {

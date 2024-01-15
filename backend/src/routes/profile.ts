@@ -23,7 +23,7 @@ profileRouter.post(
   createProfile
 );
 
-profileRouter.put("/", auth, updateProfile);
-profileRouter.delete("/", auth, deleteProfile);
+profileRouter.put("/:profile_id", auth, updateProfile);
+profileRouter.delete("/:profile_id", auth, deleteProfile);
 
 export default profileRouter;

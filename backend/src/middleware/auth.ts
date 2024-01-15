@@ -16,7 +16,7 @@ export const auth = async (req: any, res: Response, next: NextFunction) => {
     const user = jwt.verify(token, config.jwt.accessTokenSecret!) as {
       id: number;
     };
-    console.log(user);
+    // console.log(user);
 
     req.user_id = user.id as number;
     // const profile = await profileServices.getProfile(req.user_id);

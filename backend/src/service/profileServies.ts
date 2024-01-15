@@ -7,10 +7,6 @@ export async function getProfile(user_id: number) {
   return profile;
 }
 export async function createProfile(profile: IProfile) {
-  const ProfileExist = await ProfileModel.getProfile(profile.user_id);
-  if (ProfileExist) {
-    throw new BadRequestError("Profile already exist");
-  }
   return await ProfileModel.createProfile(profile);
 }
 

@@ -7,6 +7,9 @@ const createProfileSchema = Joi.object({
   description: Joi.string().required().max(555).messages({
     "required.any": "description is required",
   }),
+  photo: Joi.string().required().messages({
+    "required.any": "photo is required",
+  }),
   available_time: Joi.string().required().max(225).messages({
     "required.any": "available_time is required",
   }),

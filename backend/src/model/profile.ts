@@ -14,6 +14,7 @@ export default class ProfileModel extends BaseModel {
         profile_id: "profiles.profile_id",
         fullname: "profiles.fullname",
         description: "profiles.description",
+        photo: "profiles.photo",
         available_time: "profiles.available_time",
         address: "profiles.address",
         minimum_charge: "profiles.minimum_charge",
@@ -27,15 +28,13 @@ export default class ProfileModel extends BaseModel {
     // .leftJoin("professions", "profiles.profile_id", "professions.profile_id");
   }
 
-  static async getFilteredProfile(
-    category: string | undefined,
-    location: string | undefined
-  ) {
+  static async getFilteredProfile(category: string, location: string) {
     let query = await this.queryBuilder()
       .select({
         profile_id: "profiles.profile_id",
         fullname: "profiles.fullname",
         description: "profiles.description",
+        photo: "profiles.photo",
         available_time: "profiles.available_time",
         address: "profiles.address",
         minimum_charge: "profiles.minimum_charge",
@@ -44,7 +43,6 @@ export default class ProfileModel extends BaseModel {
         experience: "profiles.experience",
       })
       .from("profiles")
-
       .where("profiles.specialization", category)
       .where("profiles.address", location);
 
@@ -77,6 +75,7 @@ export default class ProfileModel extends BaseModel {
           profile_id: "profiles.profile_id",
           fullname: "profiles.fullname",
           description: "profiles.description",
+          photo: "profiles.photo",
           available_time: "profiles.available_time",
           address: "profiles.address",
           minimum_charge: "profiles.minimum_charge",
@@ -87,28 +86,19 @@ export default class ProfileModel extends BaseModel {
         .from("profiles")
         // .leftJoin("professions", "profiles.profile_id", "professions.profile_id")
         .where("profiles.user_id", user_id)
-        .first()
     );
   }
 
   static async deleteProfile(user_id: number) {
     return this.queryBuilder()
       .table("profiles")
-      .where({ user_id: user_id })
+      .where({ profile_id: user_id })
       .del();
   }
 
   static async updateProfile(profileData: IProfile) {
     return this.queryBuilder().transaction(async (trx) => {
-      //Find profile with profile_id associated with the provided user_id
-      const [profile] = await trx("profiles")
-        .where({ user_id: profileData.user_id })
-        .returning("profile_id");
-
-      //console.log(profile,typeof(profile));
-
-      //Update profiles table:
-      await trx("profiles").where({ user_id: profileData.user_id }).update({
+      await trx("profiles").where({ profile_id: profileData.user_id }).update({
         fullname: profileData.fullname,
         description: profileData.description,
         available_time: profileData.available_time,
