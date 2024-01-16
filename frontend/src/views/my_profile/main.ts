@@ -13,6 +13,11 @@ interface Profile {
   minimumCharge: string;
   contactNumber: string;
 }
+
+// const profileContainer = document.querySelector(".profile");
+// const modal = document.getElementById("updateProfileModal");
+// const modalTitle = document.getElementById("modalTitle");
+// const modalContent = document.getElementById("modalContent");
 let profileId: number;
 let profiles: Profile[];
 const accessToken = localStorage.getItem("accessToken");
@@ -43,18 +48,33 @@ window.onload = async function () {
     if (target.tagName === "BUTTON") {
       profileId = Number(target.getAttribute("data-profile-id"));
 
+      // Check if it's a View More button
       if (target.classList.contains("view-more-btn")) {
-        handleViewMoreClick(profileId);
-      } else if (target.classList.contains("update-btn")) {
+        // handleViewMoreClick(profileId);
+        window.location.href = "../landing_page/index.html";
+      }
+      // Check if it's an Update button
+      else if (target.classList.contains("update-btn")) {
         handleUpdateClick(profileId);
-      } else if (target.classList.contains("delete-btn")) {
+      }
+      // Check if it's a Delete button
+      else if (target.classList.contains("delete-btn")) {
         handleDeleteClick(profileId);
       }
     }
   });
 };
+
 async function handleViewMoreClick(profileId: number) {
   console.log("View More Clicked", profileId);
+  // const clickedViewMore = profiles.find(
+  //   (profile) => Number(profile.profileId) === Number(profileId)
+  // );
+  // if (clickedViewMore) {
+  //   updateModalContent(clickedViewMore);
+  // } else {
+  //   console.error("Profile not found");
+  // }
 }
 async function handleUpdateClick(profileId: number) {
   console.log("Update Clicked", profileId);
@@ -106,6 +126,7 @@ updateButtonSubmit.addEventListener("click", function () {
   handleUpdateSubmit(profileId);
 });
 
+// Function to handle Update button click event
 async function handleUpdateSubmit(profileId: number) {
   console.log("Update Clicked", profileId);
 
@@ -134,7 +155,6 @@ async function handleUpdateSubmit(profileId: number) {
     "contact-profileform"
   ) as HTMLInputElement;
 
-  // Create an object with the retrieved values
   const formData = {
     fullName: fullName.value,
     description: description.value,
@@ -225,7 +245,7 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
 
       const viewMoreButton = document.createElement("button");
       viewMoreButton.className = "view-more-btn";
-      viewMoreButton.innerText = "View More";
+      viewMoreButton.innerText = "MainPage";
       viewMoreButton.setAttribute("data-profile-id", String(profile.profileId));
 
       const updateButton = document.createElement("button");
@@ -257,7 +277,6 @@ function updateHtmlWithApiProfiles(profiles: Profile[]) {
       profileContainer.appendChild(profileCard);
     });
   } catch (error) {
-    // console.error(error, profiles);
     console.error(error, "error");
     return;
   }

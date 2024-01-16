@@ -106,7 +106,8 @@
   margin-bottom: 30px; /* Remove default margin for cleaner appearance */
 }
 
-.submit-container .return-btn button {
+// .submit-container,
+.return-btn {
   display: block; /* Make the button a block element for full width */
   width: 50%;
   margin: auto;
@@ -120,11 +121,13 @@
   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
 }
 
-.submit-container .return-btn button:hover {
+// .submit-container,
+.return-btn:hover {
   background-color: grey;
   color: black;
 }
-.submit-container .returnFormBtn button {
+// .submit-container,
+.return-formbtn {
   display: block; /* Make the button a block element for full width */
   width: 50%;
   margin: auto;
@@ -139,7 +142,22 @@
   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
 }
 
-.submit-container .returnFormBtn button:hover {
+// .submit-container,
+.return-formbtn:hover {
   background-color: grey;
   color: black;
+}
+#formback {
+  font-weight: 400;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px 15px;
+  color: $black;
+  background: orange;
+  cursor: pointer;
+}
+#formback:hover {
+  background-color: black;
+  color: white;
 }

@@ -471,6 +471,7 @@ button {
 }
 .container__button {
   margin-left: 300px;
+  padding-bottom: 70px;
 }
 .container__button button {
   font-weight: 700;
@@ -768,6 +769,64 @@ button {
   border-top: 1px solid #ddd;
 }
 
+.profile__button {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profile__button button {
+  font-weight: 400;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 10px 15px;
+  color: #000;
+  background: orange;
+  cursor: pointer;
+}
+
+#updateProfileModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  max-width: 60%;
+  margin: 10% auto;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+}
+
 .profileData {
   margin: auto;
 }
@@ -849,7 +908,7 @@ button {
   margin-bottom: 30px; /* Remove default margin for cleaner appearance */
 }
 
-.submit-container .return-btn button {
+.return-btn {
   display: block; /* Make the button a block element for full width */
   width: 50%;
   margin: auto;
@@ -863,12 +922,12 @@ button {
   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
 }
 
-.submit-container .return-btn button:hover {
+.return-btn:hover {
   background-color: grey;
   color: black;
 }
 
-.submit-container .returnFormBtn button {
+.return-formbtn {
   display: block; /* Make the button a block element for full width */
   width: 50%;
   margin: auto;
@@ -883,9 +942,25 @@ button {
   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
 }
 
-.submit-container .returnFormBtn button:hover {
+.return-formbtn:hover {
   background-color: grey;
   color: black;
+}
+
+#formback {
+  font-weight: 400;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #000;
+  background: orange;
+  cursor: pointer;
+}
+
+#formback:hover {
+  background-color: black;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

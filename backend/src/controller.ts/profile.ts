@@ -12,19 +12,19 @@ export async function createProfile(
   res: Response,
   next: NextFunction
 ) {
-  console.log(req.body);
+  // console.log(req.body);
   const extendedRequest = req as ExtendedRequest;
   console.log("saclajs", extendedRequest.user_id);
 
   const getPhoto = await cloudinaryUpload(req.body.photo);
-  console.log({ getPhoto });
+  // console.log({ getPhoto });
 
   const profileData: IProfile = {
     ...req.body,
     photo: getPhoto,
     user_id: extendedRequest.user_id,
   };
-  console.log({ profileData });
+  // console.log({ profileData });
 
   try {
     const data = await profileServices.createProfile(profileData);
@@ -50,7 +50,7 @@ export async function getFilteredProfile(req: Request, res: Response) {
   // console.log(req);
   // console.log("esma", req.body);
   // console.log(req.query);
-  console.log("tesma", req.query);
+  // console.log("tesma", req.query);
   const response = req.query;
   if (
     typeof response.category === "string" &&
@@ -77,7 +77,7 @@ export async function getFilteredProfile(req: Request, res: Response) {
         result.category,
         result.location
       );
-      console.log(profile);
+      // console.log(profile);
       res.json(profile);
     } catch (error) {
       res.status(500).json({ message: "Something went wrong" });
@@ -124,10 +124,16 @@ export async function updateProfile(
   next: NextFunction
 ) {
   const profileId = req.params.profile_id;
+
+  // const updatePhoto = await cloudinaryUpload(req.params.photo);
+  // console.log({ updatePhoto });
+
   const profileData: IProfile = {
     ...req.body,
-    user_id: profileId,
+    // photo: updatePhoto,
+    user_id: Number(profileId),
   };
+  console.log("milena bruh", profileData);
 
   try {
     const data = await profileServices.updateProfile(profileData);
@@ -136,5 +142,3 @@ export async function updateProfile(
     res.status(500).json({ message: "Something went wrong" });
   }
 }
-
-//admin can hit a end point with payload:user_id,roles this will chnage the role of user id either to basic or to trainer.

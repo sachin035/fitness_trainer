@@ -32,7 +32,6 @@ searchBtn?.addEventListener("click", async function (e) {
   const location = (
     document.getElementById("selectedLocation") as HTMLInputElement
   ).value;
-  // console.log("esma", category, location);
 
   let profiles: Profile[];
   try {
@@ -203,11 +202,13 @@ window.onload = async function () {
 
 function updateHtmlWithApiProfiles(profiles: Profile[]) {
   const profileContainer = document.querySelector(".profile");
+
   if (!profileContainer) {
     console.error("Profile container not found in the DOM");
     return;
   }
 
+  profileContainer.innerHTML = "";
   profiles.forEach((profile) => {
     const profileCard = document.createElement("div");
     profileCard.className = "profile__card";

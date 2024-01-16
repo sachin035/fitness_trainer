@@ -145,3 +145,9 @@ profileForm?.addEventListener("submit", async (e) => {
     successContainer.appendChild(submitContainer);
   }
 });
+const mainPageBtn = document.getElementById("formback") as HTMLButtonElement;
+mainPageBtn.addEventListener("click", async (e) => {
+  console.log("clicked");
+  e.preventDefault();
+  window.location.href = "../landing_page/index.html";
+});

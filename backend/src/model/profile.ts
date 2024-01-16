@@ -97,6 +97,7 @@ export default class ProfileModel extends BaseModel {
   }
 
   static async updateProfile(profileData: IProfile) {
+    console.log("milena bruh 3", profileData);
     return this.queryBuilder().transaction(async (trx) => {
       await trx("profiles").where({ profile_id: profileData.user_id }).update({
         fullname: profileData.fullname,
@@ -105,8 +106,8 @@ export default class ProfileModel extends BaseModel {
         address: profileData.address,
         minimum_charge: profileData.minimum_charge,
         specialization: profileData.specialization,
-        contact_number: profileData.contact_number,
         experience: profileData.experience,
+        contact_number: profileData.contact_number,
       });
     });
   }
